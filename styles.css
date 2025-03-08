@@ -1,11 +1,7 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-image: url('us_edited.jpg'); /* Thay bằng tên ảnh của bạn */
-    background-size: contain; /* Hiển thị toàn bộ ảnh */
-    background-position: center; /* Căn giữa */
-    background-repeat: no-repeat; /* Không lặp lại */
-    background-color: #ffafcc; /* Màu nền bổ sung để lấp đầy khoảng trống */
+    background: linear-gradient(135deg, #ffafcc, #a2d2ff);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,13 +11,13 @@ body {
 
 .container {
     text-align: center;
-    background: rgba(255, 255, 255, 0.8); /* Hộp mờ để văn bản dễ đọc */
+    background: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     max-width: 600px;
     width: 90%;
-    color: #333;
+    margin: 10px; /* Thêm margin để tránh dính mép trên màn hình nhỏ */
 }
 
 header {
@@ -53,16 +49,25 @@ header p {
     line-height: 1.6;
 }
 
+/* Kiểu cho ảnh trong nội dung */
+.photo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 .flower-animation {
     position: relative;
-    height: 150px;
+    height: 120px; /* Giảm chiều cao trên màn hình nhỏ */
     margin: 20px 0;
 }
 
 .flower {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 15px; /* Giảm kích thước hoa trên màn hình nhỏ */
+    height: 15px;
     background: #ff69b4;
     border-radius: 50%;
     animation: float 4s infinite;
@@ -80,7 +85,7 @@ header p {
 
 @keyframes float {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-30px); }
+    50% { transform: translateY(-20px); } /* Giảm khoảng cách di chuyển */
     100% { transform: translateY(0); }
 }
 
@@ -109,11 +114,69 @@ footer {
     font-size: 0.9em;
     color: #777;
 }
-.photo {
-    max-width: 100%;
-    max-height: 200px;
-    height: auto;
-    border-radius: 10px;
-    margin: 10px 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+/* Media Queries cho responsive */
+@media (max-width: 600px) {
+    .container {
+        width: 95%; /* Tăng chiều rộng trên màn hình nhỏ */
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 2em; /* Giảm kích thước tiêu đề */
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    .message h2 {
+        font-size: 1.5em;
+    }
+
+    .message p {
+        font-size: 1em;
+    }
+
+    .photo {
+        max-height: 300px; /* Giới hạn chiều cao ảnh trên màn hình nhỏ */
+    }
+
+    .flower {
+        width: 12px;
+        height: 12px;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .message h2 {
+        font-size: 1.2em;
+    }
+
+    .photo {
+        max-height: 200px;
+    }
+
+    .flower-animation {
+        height: 100px;
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
 }
