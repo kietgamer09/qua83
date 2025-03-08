@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-image: url('us_edited.jpg'); /* Thay bằng tên ảnh của bạn */
+    background-size: contain; /* Hiển thị toàn bộ ảnh */
+    background-position: center; /* Căn giữa */
+    background-repeat: no-repeat; /* Không lặp lại */
+    background-color: #ffafcc; /* Màu nền bổ sung để lấp đầy khoảng trống */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Hộp mờ để văn bản dễ đọc */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 90%;
+    color: #333;
+}
+
+header {
+    color: #ff4d94;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.message {
+    margin: 20px 0;
+}
+
+.message h2 {
+    color: #ff69b4;
+    font-size: 1.8em;
+}
+
+.message p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.flower-animation {
+    position: relative;
+    height: 150px;
+    margin: 20px 0;
+}
+
+.flower {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff69b4;
+    border-radius: 50%;
+    animation: float 4s infinite;
+}
+
+.flower:nth-child(2) {
+    left: 40%;
+    animation-delay: 1s;
+}
+
+.flower:nth-child(3) {
+    left: 60%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+    100% { transform: translateY(0); }
+}
+
+button {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff1493;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+.photo {
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
