@@ -2,11 +2,11 @@ body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #ffafcc, #a2d2ff);
-    height: 100vh;
+    min-height: 100vh; /* Sử dụng min-height để tránh cắt nội dung */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-y: auto; /* Cho phép cuộn dọc nếu nội dung dài */
 }
 
 .container {
@@ -17,7 +17,8 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     max-width: 600px;
     width: 90%;
-    margin: 10px; /* Thêm margin để tránh dính mép trên màn hình nhỏ */
+    margin: 20px; /* Tăng margin để không sát mép */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
 }
 
 header {
@@ -60,32 +61,39 @@ header p {
 
 .flower-animation {
     position: relative;
-    height: 120px; /* Giảm chiều cao trên màn hình nhỏ */
+    height: 120px;
     margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flower {
     position: absolute;
-    width: 15px; /* Giảm kích thước hoa trên màn hình nhỏ */
+    width: 15px;
     height: 15px;
     background: #ff69b4;
     border-radius: 50%;
     animation: float 4s infinite;
 }
 
+.flower:nth-child(1) {
+    left: 30%;
+}
+
 .flower:nth-child(2) {
-    left: 40%;
+    left: 50%;
     animation-delay: 1s;
 }
 
 .flower:nth-child(3) {
-    left: 60%;
+    left: 70%;
     animation-delay: 2s;
 }
 
 @keyframes float {
     0% { transform: translateY(0); }
-    50% { transform: translateY(-20px); } /* Giảm khoảng cách di chuyển */
+    50% { transform: translateY(-20px); }
     100% { transform: translateY(0); }
 }
 
@@ -117,13 +125,19 @@ footer {
 
 /* Media Queries cho responsive */
 @media (max-width: 600px) {
+    body {
+        align-items: flex-start; /* Đưa nội dung lên đầu trên màn hình nhỏ */
+        padding-top: 10px;
+    }
+
     .container {
-        width: 95%; /* Tăng chiều rộng trên màn hình nhỏ */
+        width: 95%;
         padding: 15px;
+        margin: 10px;
     }
 
     header h1 {
-        font-size: 2em; /* Giảm kích thước tiêu đề */
+        font-size: 1.8em; /* Giảm kích thước chữ trên màn hình nhỏ */
     }
 
     header p {
@@ -131,20 +145,36 @@ footer {
     }
 
     .message h2 {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     .message p {
-        font-size: 1em;
+        font-size: 0.95em;
     }
 
     .photo {
-        max-height: 300px; /* Giới hạn chiều cao ảnh trên màn hình nhỏ */
+        max-height: 250px; /* Giới hạn chiều cao ảnh */
+    }
+
+    .flower-animation {
+        height: 100px;
     }
 
     .flower {
         width: 12px;
         height: 12px;
+    }
+
+    .flower:nth-child(1) {
+        left: 20%;
+    }
+
+    .flower:nth-child(2) {
+        left: 50%;
+    }
+
+    .flower:nth-child(3) {
+        left: 80%;
     }
 
     button {
@@ -155,16 +185,24 @@ footer {
 
 @media (max-width: 400px) {
     .container {
-        margin: 5px;
         padding: 10px;
+        margin: 5px;
     }
 
     header h1 {
         font-size: 1.5em;
     }
 
+    header p {
+        font-size: 0.9em;
+    }
+
     .message h2 {
         font-size: 1.2em;
+    }
+
+    .message p {
+        font-size: 0.9em;
     }
 
     .photo {
@@ -172,11 +210,52 @@ footer {
     }
 
     .flower-animation {
-        height: 100px;
+        height: 80px;
+    }
+
+    .flower {
+        width: 10px;
+        height: 10px;
     }
 
     button {
         font-size: 0.9em;
         padding: 6px 12px;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 1.3em;
+    }
+
+    .message h2 {
+        font-size: 1em;
+    }
+
+    .message p {
+        font-size: 0.85em;
+    }
+
+    .photo {
+        max-height: 180px;
+    }
+
+    .flower-animation {
+        height: 60px;
+    }
+
+    .flower {
+        width: 8px;
+        height: 8px;
+    }
+
+    button {
+        font-size: 0.8em;
+        padding: 5px 10px;
     }
 }
